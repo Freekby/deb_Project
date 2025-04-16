@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308ecd752eeea8c4f8e91bb8c04ee761, type: 3}
+  m_Name: Meadow
+  m_EditorClassIdentifier: 
+  MapIndex: 0
+  MapName: Meadow
+  MapDescription: MeadowForPidors
+  MapSprite: {fileID: 2485337308247802440, guid: a2d31b71d1edd5a4d97e89c2d027d701, type: 3}
+  SceneToload: {fileID: 0}
