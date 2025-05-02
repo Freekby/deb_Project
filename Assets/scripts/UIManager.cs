@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
 
     private List<GameObject> hiddenObjectIconList;
-    public GameObject GamePanel { get { return gamePanel; } }
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -18,28 +18,40 @@ public class UIManager : MonoBehaviour
         hiddenObjectIconList = new List<GameObject>();
     }
     
+    public void ShowEndGameWindow()
+    {
+        gamePanel.SetActive(true);
+    }
+
+    private GameObject CreateHiddenObjectIcon(HiddenObjectData hiddenObjectData)
+    {
+        GameObject icon = Instantiate(hiddenIvonPrefab, hiddenIvonHolder.transform);
+
+        icon.name = hiddenObjectData.hiddenObject.name;
+        Image childImg = icon.transform.GetChild(0).GetComponent<Image>();
+        Text childText = icon.transform.GetChild(1).GetComponent<Text>();
+
+        childImg.sprite = hiddenObjectData.hiddenObject.GetComponent<SpriteRenderer>().sprite;
+        childText.text = hiddenObjectData.Name;
+
+        return icon;
+    }
 
     public void PopulateHiddenObjectIcon (List<HiddenObjectData> activeHiddenObjectList)
     {
         hiddenObjectIconList.Clear();
         for (int i = 0; i < activeHiddenObjectList.Count; i++)
         {
-            GameObject icon = Instantiate(hiddenIvonPrefab, hiddenIvonHolder.transform);
-            icon.name = activeHiddenObjectList[i].hiddenObject.name;
-            Image childImg = icon.transform.GetChild(0).GetComponent<Image>();
-            Text childText = icon.transform.GetChild(1).GetComponent<Text>();
-
-            childImg.sprite = activeHiddenObjectList[i].hiddenObject.GetComponent<SpriteRenderer>().sprite;
-            childText.text = activeHiddenObjectList[i].name;
-
+            GameObject icon = CreateHiddenObjectIcon(activeHiddenObjectList[i]);
             hiddenObjectIconList.Add(icon);
         }
     }
-    public void CheckSelectedHiddenObject(string objectName)
+
+    public void DisableSelectedHiddenObject(string clickedObject)
     {
         for (int i = 0; i < hiddenObjectIconList.Count; i++)
         {
-            if (hiddenObjectIconList[i].name == objectName)
+            if (hiddenObjectIconList[i].name == clickedObject)
             {
                 hiddenObjectIconList[i].SetActive(false);
                 break;

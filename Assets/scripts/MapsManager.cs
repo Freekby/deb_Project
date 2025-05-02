@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScriptableObjectManager : MonoBehaviour
+public class MapsManager : MonoBehaviour
 {
-    public ScriptableObject[] MapObjects;
+    public Map[] MapObjects;
     public MapDisplayManager MapDisplayManager;
     private int _currentIndex;
 
@@ -26,18 +26,12 @@ public class ScriptableObjectManager : MonoBehaviour
 
         if (MapDisplayManager != null)
         {
-            MapDisplayManager.DisplayMap((Map)MapObjects[_currentIndex]);
+            MapDisplayManager.DisplayMap(MapObjects[_currentIndex]);
         }
     }
 
     public void StartGame()
     {
-        Map currentMap = (Map)MapObjects[_currentIndex];
-
-        if (currentMap.SceneToload != null)
-        {
-            Debug.Log(currentMap.SceneToload.name);
-            SceneManager.LoadScene(currentMap.SceneToload.name);
-        }
+        SceneManager.LoadScene(_currentIndex+3);
     }
 }

@@ -11,25 +11,34 @@ public class LevelManager : MonoBehaviour
     private List<HiddenObjectData> activeHiddenObjectsList;
 
     public int maxObject;
-    private int totalHiddenObjectsCount = 0;
+    private int foundHiddenObjectsCount = 0;
+
+
     void Awake()
     {
         if (instance == null) instance = this;
         else if (instance != null) Destroy(gameObject);
     }
+
     private void Start()
     {
         activeHiddenObjectsList = new List<HiddenObjectData>();
         AssignHiddenObjects();
     }
-    void AssignHiddenObjects()
+
+    /// <summary>
+    /// Отключает коллайдеры всех объектов на карте.
+    /// </summary>
+    private void DisableColliders()
     {
-        activeHiddenObjectsList.Clear();
-        for(int i = 0; i < hiddenObjectList.Count;i++)
+        for (int i = 0; i < hiddenObjectList.Count; i++)
         {
             hiddenObjectList[i].hiddenObject.GetComponent<Collider2D>().enabled = false;
         }
+    }
 
+    private void SelectActiveHiddenObjects()
+    {
         int k = 0;
         while (k < maxObject)
         {
@@ -37,62 +46,64 @@ public class LevelManager : MonoBehaviour
 
             if (!hiddenObjectList[randomVal].makeHidden)
             {
-                hiddenObjectList[randomVal].name = "" + k;
                 hiddenObjectList[randomVal].makeHidden = true;
                 hiddenObjectList[randomVal].hiddenObject.GetComponent<Collider2D>().enabled = true;
                 activeHiddenObjectsList.Add(hiddenObjectList[randomVal]);
                 k++;
             }
-            
         }
-        UIManager.instance.PopulateHiddenObjectIcon(activeHiddenObjectsList);
-        
     }
 
-    private void Update()
+    public void AssignHiddenObjects()
+    {
+        activeHiddenObjectsList.Clear();
+        DisableColliders();
+        SelectActiveHiddenObjects();
+        
+        UIManager.instance.PopulateHiddenObjectIcon(activeHiddenObjectsList);
+    }
+
+    private GameObject GetClickedObject()
+    {
+        var mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector2 position = new Vector2(mousePos.origin.x, mousePos.origin.y);
+        Collider2D hit = Physics2D.OverlapPoint(position);
+
+        return hit.gameObject;
+    }
+
+    private void RemoveActiveHiddenObject(string objectName)
+    {
+        for (int i = 0; i < activeHiddenObjectsList.Count; i++)
+        {
+            if (activeHiddenObjectsList[i].hiddenObject.name == objectName)
+            {
+                activeHiddenObjectsList.RemoveAt(i);
+                break;
+            }
+        }
+    }
+
+    private void FixedUpdate()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            var mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector2 position = new Vector2(mousePos.origin.x, mousePos.origin.y);
-            Collider2D hit = Physics2D.OverlapPoint(position);
+            GameObject ClickedObject = GetClickedObject();
 
-            if (hit)
+            if (ClickedObject)
             {
-                //Debug.Log("Object Name" + hit.gameObject.name);
+                ClickedObject.SetActive(false);
+                UIManager.instance.DisableSelectedHiddenObject(ClickedObject.name);
 
-                hit.gameObject.SetActive(false);
-                UIManager.instance.CheckSelectedHiddenObject(hit.gameObject.name);
-                for (int i = 0; i < activeHiddenObjectsList.Count; i++)
+                RemoveActiveHiddenObject(ClickedObject.name);
+
+                foundHiddenObjectsCount++;
+
+                if (maxObject <= foundHiddenObjectsCount) 
                 {
-                    if (activeHiddenObjectsList[i].hiddenObject.name == hit.gameObject.name)
-                    {
-                        activeHiddenObjectsList.RemoveAt(i);
-                        break;
-                    }
+                    UIManager.instance.ShowEndGameWindow();
                 }
-                totalHiddenObjectsCount++;
-                    Debug.Log(totalHiddenObjectsCount);
-                    Debug.Log(maxObject);
-                if (maxObject <= totalHiddenObjectsCount) 
-                {
-                    Debug.Log("Ты победил. Иди  нахуй");
-                    UIManager.instance.GamePanel.SetActive(true);
-                    UIManager.instance.GamePanel.transform.position = new Vector3(0, 0, -2);
-
-
-                }
-
             }
-
-            Debug.Log(hit);
         }
     }
-}
-[System.Serializable]
-public class HiddenObjectData
-{
-    public string name;
-    public GameObject hiddenObject;
-    public bool makeHidden = false;
 }

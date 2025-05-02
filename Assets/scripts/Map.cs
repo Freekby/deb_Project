@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "New Map", menuName = "Map")]
 public class Map : ScriptableObject
@@ -7,5 +8,5 @@ public class Map : ScriptableObject
     public string MapName;
     public string MapDescription;
     public Sprite MapSprite;
-    public Object SceneToload;
+    public Scene SceneToload;
 }
