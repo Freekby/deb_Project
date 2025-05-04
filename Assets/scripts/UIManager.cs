@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     public void ShowEndGameWindow()
     {
         gamePanel.SetActive(true);
-        PlayerPrefs.SetInt("CurrentScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     private GameObject CreateHiddenObjectIcon(HiddenObjectData hiddenObjectData)

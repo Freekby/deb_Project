@@ -3,13 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class MapsManager : MonoBehaviour
 {
+    public static MapsManager instance;
+
     public Map[] MapObjects;
     public MapDisplayManager MapDisplayManager;
     private int _currentIndex;
 
+
     public void Awake()
     {
+        if (instance == null) instance = this;
+        else if (instance != null) Destroy(gameObject);
+
+        _currentIndex = 0;
         ChangeScriptableObject(0);
+    }
+
+    public int GetCurrentMapIndex()
+    {
+        return MapObjects[_currentIndex].MapIndex;
     }
 
     public void ChangeScriptableObject(int change)

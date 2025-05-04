@@ -15,10 +15,9 @@ public class MapDisplayManager : MonoBehaviour
         _mapName.text = map.MapName;
         _mapdescription.text = map.MapDescription;
         _mapImage.sprite = map.MapSprite;
-        _rewardImage.sprite = map.RewardSprite;
+        //_rewardImage.sprite = map.RewardSprite;
 
-
-        bool MapUnlocked = PlayerPrefs.GetInt("CurrentScene", 0) >= map.MapIndex;
+        bool MapUnlocked = PlayerPrefs.GetInt("CurrentLevel", 0) >= map.MapIndex;
 
         LockImage.SetActive(!MapUnlocked);
         _playbutton.interactable = MapUnlocked;

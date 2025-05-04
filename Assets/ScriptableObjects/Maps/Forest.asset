@@ -16,5 +16,6 @@ MonoBehaviour:
   MapName: Forest
   MapDescription: Karina Lesbian's Meadow
   MapSprite: {fileID: 5408648523812657416, guid: 9ea6ee3739e6a4042ba69cb8d3eee956, type: 3}
+  RewardSprite: {fileID: -472228303579434165, guid: 54388cca4b69e9f409ccfedb80a03d99, type: 3}
   SceneToload:
     m_Handle: 0

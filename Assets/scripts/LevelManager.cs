@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
+
     [SerializeField]
     private List <HiddenObjectData> hiddenObjectList;
 
@@ -101,11 +103,17 @@ public class LevelManager : MonoBehaviour
 
                 if (maxObject <= foundHiddenObjectsCount) 
                 {
+                    if (MapsManager.instance.GetCurrentMapIndex() >= PlayerPrefs.GetInt("CurrentLevel", 0))
+                    {
+                        PlayerPrefs.SetInt("CurrentLevel", MapsManager.instance.GetCurrentMapIndex()+1);
+                    }
+
                     UIManager.instance.ShowEndGameWindow();
                 }
             }
         }
     }
+
     public IEnumerator HelpMethod()
     {
         int randomVal = UnityEngine.Random.Range(0, activeHiddenObjectsList.Count);
@@ -113,7 +121,5 @@ public class LevelManager : MonoBehaviour
         activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale = originalScale * 1.25f;
         yield return new WaitForSeconds(0.25f);
         activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale = originalScale;
-
-
     }
 }
