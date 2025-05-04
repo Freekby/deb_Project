@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "New Map", menuName = "Map")]
