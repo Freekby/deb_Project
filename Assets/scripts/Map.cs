@@ -8,5 +8,6 @@ public class Map : ScriptableObject
     public string MapName;
     public string MapDescription;
     public Sprite MapSprite;
+    public Sprite RewardSprite;
     public Scene SceneToload;
 }

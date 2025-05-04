@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
     public void ShowEndGameWindow()
     {
         gamePanel.SetActive(true);
+        PlayerPrefs.SetInt("CurrentScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     private GameObject CreateHiddenObjectIcon(HiddenObjectData hiddenObjectData)
@@ -57,5 +59,19 @@ public class UIManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void HelpButton()
+    {
+        StartCoroutine(LevelManager.instance.HelpMethod());
+    }
+    public void RetryButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoToLevelsList()
+    {
+        SceneManager.LoadScene("LevelsScene");
     }
 }

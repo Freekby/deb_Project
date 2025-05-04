@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
@@ -105,5 +105,15 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+    }
+    public IEnumerator HelpMethod()
+    {
+        int randomVal = UnityEngine.Random.Range(0, activeHiddenObjectsList.Count);
+        Vector3 originalScale = activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale;
+        activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale = originalScale * 1.25f;
+        yield return new WaitForSeconds(0.25f);
+        activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale = originalScale;
+
+
     }
 }
