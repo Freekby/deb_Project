@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class MapDisplayManager : MonoBehaviour
     public Button _playbutton;
     public GameObject LockImage;
     public Image _rewardImage;
+
+    public AudioSource SoundPlay;
 
     public void DisplayMap(Map map)
     {
@@ -43,6 +46,7 @@ public class MapDisplayManager : MonoBehaviour
 
     public void LoadMenuScene()
     {
+        SoundManager.instance.PlayButtonEffect();
         SceneManager.LoadScene("MenuScene");
     }
 }

@@ -31,9 +31,11 @@ public class UIManager : MonoBehaviour
         icon.name = hiddenObjectData.hiddenObject.name;
         Image childImg = icon.transform.GetChild(0).GetComponent<Image>();
         Text childText = icon.transform.GetChild(1).GetComponent<Text>();
+        //AudioSource childSound = icon.transform.GetChild(2).GetComponent<AudioSource>();
 
         childImg.sprite = hiddenObjectData.hiddenObject.GetComponent<SpriteRenderer>().sprite;
         childText.text = hiddenObjectData.Name;
+        
 
         return icon;
     }

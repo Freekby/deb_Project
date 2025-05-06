@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GalleryManager : MonoBehaviour
 {
     public Map[] MapObjects;
     [SerializeField] private GameObject hiddenIvonHolder;
     [SerializeField] private GameObject hiddenIvonPrefab;
+
+    public AudioSource SoundPlay;
 
     private void Start()
     {
@@ -38,8 +41,12 @@ public class GalleryManager : MonoBehaviour
         }
     }
 
+
     public void LoadMenuScene()
     {
+        SoundManager.instance.PlayButtonEffect();
         SceneManager.LoadScene("MenuScene");
     }
+
+
 }

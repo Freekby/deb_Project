@@ -1262,6 +1262,7 @@ MonoBehaviour:
   _playbutton: {fileID: 47123217}
   LockImage: {fileID: 1919015512}
   _rewardImage: {fileID: 2921331}
+  SoundPlay: {fileID: 0}
 --- !u!1 &1304911953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,6 +1738,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c9cd52d05e771d34b9deef9292a44ea2, type: 2}
   - {fileID: 11400000, guid: f044ebb84e626354fb2413758a4fde4f, type: 2}
   MapDisplayManager: {fileID: 1184707565}
+  SoundPlay: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

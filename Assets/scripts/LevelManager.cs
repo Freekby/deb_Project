@@ -80,10 +80,18 @@ public class LevelManager : MonoBehaviour
         {
             if (activeHiddenObjectsList[i].hiddenObject.name == objectName)
             {
+                AudioSource audioSource = activeHiddenObjectsList[i].soundObject.GetComponent<AudioSource>();
+                StartCoroutine(PlaySound(audioSource));
                 activeHiddenObjectsList.RemoveAt(i);
                 break;
             }
         }
+    }
+    private IEnumerator PlaySound(AudioSource audioSource)
+    {
+        audioSource.Play();
+        yield return new WaitForSeconds(2f);
+
     }
 
     private void FixedUpdate()
@@ -94,10 +102,11 @@ public class LevelManager : MonoBehaviour
 
             if (ClickedObject)
             {
-                ClickedObject.SetActive(false);
-                UIManager.instance.DisableSelectedHiddenObject(ClickedObject.name);
-
                 RemoveActiveHiddenObject(ClickedObject.name);
+                ClickedObject.GetComponent<SpriteRenderer>().enabled = false;
+
+                UIManager.instance.DisableSelectedHiddenObject(ClickedObject.name);
+                
 
                 foundHiddenObjectsCount++;
 
@@ -118,6 +127,10 @@ public class LevelManager : MonoBehaviour
     {
         int randomVal = UnityEngine.Random.Range(0, activeHiddenObjectsList.Count);
         Vector3 originalScale = activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale;
+        activeHiddenObjectsList[randomVal].soundObject.GetComponent<AudioSource>().Play();
+        Debug.Log(activeHiddenObjectsList[randomVal].soundObject.name);
+
+
         activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale = originalScale * 1.25f;
         yield return new WaitForSeconds(0.25f);
         activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale = originalScale;

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class MapsManager : MonoBehaviour
     public Map[] MapObjects;
     public MapDisplayManager MapDisplayManager;
     private int _currentIndex;
-
+    public AudioSource SoundPlay;
 
     public void Awake()
     {
@@ -44,6 +45,7 @@ public class MapsManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(_currentIndex+3);
+        SoundManager.instance.PlayButtonEffect();
+        SceneManager.LoadScene(_currentIndex + 3);
     }
 }
