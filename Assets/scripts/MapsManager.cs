@@ -28,6 +28,7 @@ public class MapsManager : MonoBehaviour
 
     public void ChangeScriptableObject(int change)
     {
+        SoundManager.instance.PlayButtonEffect();
         _currentIndex += change;
         if (_currentIndex < 0)
         {

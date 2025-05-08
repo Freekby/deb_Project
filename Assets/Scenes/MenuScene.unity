@@ -276,9 +276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 77dcf695456fd88418ba67ccf5fa425f, type: 3}
   FindObject: {fileID: 0}
-  _mixer: {fileID: 24300002, guid: 9b9b3fe773466a54ea0229cb1f2a913e, type: 2}
-  _musicSlider: {fileID: 23068265}
-  _effectSlider: {fileID: 1733545672}
 --- !u!82 &218727321
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1251,7 +1248,7 @@ PrefabInstance:
     - target: {fileID: 2326052381859731264, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 218727320}
+      objectReference: {fileID: 1872366433}
     - target: {fileID: 2326052381859731264, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1262,7 +1259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2326052381859731264, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SoundManager, Assembly-CSharp
+      value: SetVolume, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2326052381859731264, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1567,7 +1564,7 @@ PrefabInstance:
     - target: {fileID: 8659449341278969535, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 218727320}
+      objectReference: {fileID: 1872366433}
     - target: {fileID: 8659449341278969535, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1578,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8659449341278969535, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SoundManager, Assembly-CSharp
+      value: SetVolume, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8659449341278969535, guid: 5cff5332165ee994bb3978aec68054b4, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2571,6 +2568,7 @@ GameObject:
   - component: {fileID: 1872366431}
   - component: {fileID: 1872366430}
   - component: {fileID: 1872366429}
+  - component: {fileID: 1872366433}
   m_Layer: 5
   m_Name: Setings
   m_TagString: Untagged
@@ -2661,6 +2659,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1872366433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872366428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8736784e6996e49ac0aaa3deec9332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24300002, guid: 9b9b3fe773466a54ea0229cb1f2a913e, type: 2}
+  _musicSlider: {fileID: 23068265}
+  _effectSlider: {fileID: 1733545672}
 --- !u!1 &1991598453
 GameObject:
   m_ObjectHideFlags: 0
