@@ -10,6 +10,8 @@ public class GalleryManager : MonoBehaviour
     [SerializeField] private GameObject hiddenIvonPrefab;
 
     public AudioSource SoundPlay;
+    public Animator transition;
+
 
     private void Start()
     {
@@ -45,8 +47,18 @@ public class GalleryManager : MonoBehaviour
     public void LoadMenuScene()
     {
         SoundManager.instance.PlayButtonEffect();
-        SceneManager.LoadScene("MenuScene");
+        //SceneManager.LoadScene("MenuScene");
+       StartCoroutine(PlayTransition("MenuScene"));
     }
+    public IEnumerator PlayTransition(string NameScene)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(NameScene);
+
+    }
+
 
 
 }

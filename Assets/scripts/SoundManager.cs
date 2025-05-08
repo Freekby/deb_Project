@@ -1,11 +1,16 @@
+using System;
 using UnityEngine;
+
 
 public class SoundManager : MonoBehaviour
 {
     public AudioClip audioClip;
     public AudioClip FindObject;
     private AudioSource SoundPlay;
-    public static SoundManager instance; 
+    public static SoundManager instance;
+
+ 
+
     public void Awake()
     {
         if (instance == null)
@@ -20,6 +25,8 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         SoundPlay = this.GetComponent<AudioSource>();
     }
+   
+
     public void PlayButtonEffect()
     {
         SoundPlay.PlayOneShot(audioClip);
@@ -32,4 +39,5 @@ public class SoundManager : MonoBehaviour
         SoundPlay.PlayOneShot(hiddendObjectSound);
 
     }
+   
 }

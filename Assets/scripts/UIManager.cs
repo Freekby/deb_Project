@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -10,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
 
     private List<GameObject> hiddenObjectIconList;
+    public Animator transition;
 
     void Awake()
     {
@@ -68,11 +71,23 @@ public class UIManager : MonoBehaviour
     }
     public void RetryButton()
     {
+        SoundManager.instance.PlayButtonEffect();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+ 
 
     public void GoToLevelsList()
     {
-        SceneManager.LoadScene("LevelsScene");
+        //SceneManager.LoadScene("LevelsScene");
+        SoundManager.instance.PlayButtonEffect();
+        StartCoroutine(PlayTransition("LevelsScene"));
+    }
+    public IEnumerator PlayTransition(string NameScene)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(NameScene);
+
     }
 }

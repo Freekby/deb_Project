@@ -10,6 +10,7 @@ public class MapsManager : MonoBehaviour
     public MapDisplayManager MapDisplayManager;
     private int _currentIndex;
     public AudioSource SoundPlay;
+    public Animator transition;
 
     public void Awake()
     {
@@ -46,6 +47,17 @@ public class MapsManager : MonoBehaviour
     public void StartGame()
     {
         SoundManager.instance.PlayButtonEffect();
-        SceneManager.LoadScene(_currentIndex + 3);
+        //SceneManager.LoadScene(_currentIndex + 3);
+        StartCoroutine(PlayTransition(_currentIndex + 3));
+
     }
+    public IEnumerator PlayTransition(int indexScene)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(indexScene);
+
+    }
+
 }

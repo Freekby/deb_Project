@@ -13,6 +13,7 @@ public class MapDisplayManager : MonoBehaviour
     public Image _rewardImage;
 
     public AudioSource SoundPlay;
+    public Animator transition;
 
     public void DisplayMap(Map map)
     {
@@ -47,6 +48,15 @@ public class MapDisplayManager : MonoBehaviour
     public void LoadMenuScene()
     {
         SoundManager.instance.PlayButtonEffect();
-        SceneManager.LoadScene("MenuScene");
+        //SceneManager.LoadScene("MenuScene");
+        StartCoroutine(PlayTransition("MenuScene"));
+    }
+    public IEnumerator PlayTransition(string NameScene)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(NameScene);
+
     }
 }
