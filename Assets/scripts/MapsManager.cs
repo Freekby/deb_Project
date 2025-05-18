@@ -49,7 +49,7 @@ public class MapsManager : MonoBehaviour
     {
         SoundManager.instance.PlayButtonEffect();
         //SceneManager.LoadScene(_currentIndex + 3);
-        StartCoroutine(PlayTransition(_currentIndex + 3));
+        StartCoroutine(PlayTransition(GetCurrentMapIndex()));
 
     }
     public IEnumerator PlayTransition(int indexScene)

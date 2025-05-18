@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308ecd752eeea8c4f8e91bb8c04ee761, type: 3}
   m_Name: jopa
   m_EditorClassIdentifier: 
-  MapIndex: 2
-  MapName: jopa
-  MapDescription: jopa
-  MapSprite: {fileID: 7409734594118988166, guid: 0f8b316b2e79ec94aaa399a5b95c3be2, type: 3}
-  RewardSprite: {fileID: -2075173804246578182, guid: c0e5dea31e2563a4ea89d52b8224f38c, type: 3}
-  SceneToload:
-    m_Handle: 0
+  MapIndex: 5
+  MapName: "\u0414\u0436\u0443\u043D\u0433\u043B\u0438"
+  MapDescription: 
+  MapSprite: {fileID: -3107529450773266456, guid: f74ee25ebc5a09d4fa64dd782df063f8, type: 3}
+  RewardSprite: {fileID: -1471931025656677532, guid: 91a2c32677253b84da7ee1c855673db2, type: 3}

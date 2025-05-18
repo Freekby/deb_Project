@@ -22,7 +22,7 @@ public class MapDisplayManager : MonoBehaviour
         _mapImage.sprite = map.MapSprite;
         _rewardImage.sprite = map.RewardSprite;
 
-        bool MapUnlocked = PlayerPrefs.GetInt("CurrentLevel", 0) >= map.MapIndex;
+        bool MapUnlocked = PlayerPrefs.GetInt("CurrentLevel", 3) >= map.MapIndex;
 
         LockImage.SetActive(!MapUnlocked);
         _playbutton.interactable = MapUnlocked;
@@ -35,7 +35,7 @@ public class MapDisplayManager : MonoBehaviour
             _mapImage.color = Color.gray;
         }
 
-        if (PlayerPrefs.GetInt("CurrentLevel", 0)-1 >= map.MapIndex)
+        if (PlayerPrefs.GetInt("CurrentLevel", 3)-1 >= map.MapIndex)
         {
             _rewardImage.color = Color.white;
         }

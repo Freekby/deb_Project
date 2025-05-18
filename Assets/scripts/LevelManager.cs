@@ -109,10 +109,11 @@ public class LevelManager : MonoBehaviour
                 
 
                 foundHiddenObjectsCount++;
+                Debug.Log(foundHiddenObjectsCount);
 
                 if (maxObject <= foundHiddenObjectsCount) 
                 {
-                    if (MapsManager.instance.GetCurrentMapIndex() >= PlayerPrefs.GetInt("CurrentLevel", 0))
+                    if (MapsManager.instance.GetCurrentMapIndex() >= PlayerPrefs.GetInt("CurrentLevel", 3))
                     {
                         PlayerPrefs.SetInt("CurrentLevel", MapsManager.instance.GetCurrentMapIndex()+1);
                     }

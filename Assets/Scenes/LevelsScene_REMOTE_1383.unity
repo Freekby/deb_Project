@@ -523,8 +523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219.05005, y: -61}
-  m_SizeDelta: {x: 135, y: 135}
+  m_AnchoredPosition: {x: 203.58138, y: -56.83536}
+  m_SizeDelta: {x: 165.9373, y: 143.3293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381066253
 MonoBehaviour:
@@ -1053,6 +1053,8 @@ MonoBehaviour:
   _playbutton: {fileID: 47123217}
   LockImage: {fileID: 1919015512}
   _rewardImage: {fileID: 381066253}
+  SoundPlay: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!1 &1304911953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1249,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 300
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1527,6 +1529,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63c5414e864278f44a62810e2b918fb2, type: 2}
   - {fileID: 11400000, guid: c9cd52d05e771d34b9deef9292a44ea2, type: 2}
   MapDisplayManager: {fileID: 1184707565}
+  SoundPlay: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

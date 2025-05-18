@@ -33,7 +33,9 @@ public class MenuManager : MonoBehaviour
         SoundManager.instance.PlayButtonEffect();
         //SceneManager.LoadScene("LevelsScene");
         StartCoroutine(PlayTransition("LevelsScene"));
+        //PlayerPrefs.SetInt("CurrentLevel", 3);
 
     }
+    
   
 }

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dark Panel Blue(1)_0: -7320761876467843465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
