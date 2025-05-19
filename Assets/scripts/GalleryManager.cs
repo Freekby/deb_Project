@@ -102,9 +102,9 @@ public class GalleryManager : MonoBehaviour
     {
         descriptionRewardHolder.SetActive(true);
         var rewardHolder = descriptionRewardHolder.transform.GetChild(0);
-        Image icon = rewardHolder.transform.GetChild(0).GetComponent<Image>();
-        Text text = rewardHolder.transform.GetChild(1).GetComponent<Text>();
-        GameObject button = rewardHolder.transform.GetChild(2).gameObject;
+            Image icon = rewardHolder.transform.GetChild(0).GetComponent<Image>();
+            Text text = rewardHolder.transform.GetChild(1).GetComponent<Text>();
+            //GameObject button = rewardHolder.transform.GetChild(2).gameObject;
 
         icon.sprite = map.RewardSprite;
         
@@ -113,14 +113,14 @@ public class GalleryManager : MonoBehaviour
         {
             icon.color = Color.white;
             text.text = $"Получен за прохождение уровня {map.MapName}";
-            button.SetActive(true);
+            //button.SetActive(true);
             
         }
         else
         {
             icon.color = Color.black;
             text.text = $"Можно получить за прохождение уровня {map.MapName}";
-            button.SetActive(false);
+            //button.SetActive(false);
         }
     }
     public void SaveButtonClick()
