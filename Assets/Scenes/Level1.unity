@@ -390,7 +390,7 @@ MonoBehaviour:
   - Name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F \u043C\u0430\u0448\u0438\u043D\u0430"
     hiddenObject: {fileID: 1854149604}
     soundObject: {fileID: 1880186654}
-    makeHidden: 0
+    makeHidden: 1
   - Name: "\u041B\u044E\u043A"
     hiddenObject: {fileID: 1663729651}
     soundObject: {fileID: 2069471552}
@@ -1145,7 +1145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.012760726, y: 0}
   m_AnchorMax: {x: 1, y: 0.19100001}
-  m_AnchoredPosition: {x: -22.509949, y: 0}
+  m_AnchoredPosition: {x: -22.509888, y: 0}
   m_SizeDelta: {x: -433.8467, y: 43.7948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428182008
@@ -2146,7 +2146,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3253884044464325153, guid: 9b9b3fe773466a54ea0229cb1f2a913e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3dedcb60fd4880f42bd7127471aa1102, type: 3}
   m_Resource: {fileID: 8300000, guid: 3dedcb60fd4880f42bd7127471aa1102, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5599,6 +5599,10 @@ PrefabInstance:
     - target: {fileID: 3587092375041872544, guid: a06e166cd76501a4eb602ed9d570a8c3, type: 3}
       propertyPath: m_Name
       value: LevelLoader 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587092375041872544, guid: a06e166cd76501a4eb602ed9d570a8c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4685910262254978611, guid: a06e166cd76501a4eb602ed9d570a8c3, type: 3}
       propertyPath: m_Camera

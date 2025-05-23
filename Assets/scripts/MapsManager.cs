@@ -47,7 +47,7 @@ public class MapsManager : MonoBehaviour
 
     public void StartGame()
     {
-        SoundManager.instance.PlayButtonEffect();
+        //SoundManager.instance.PlayButtonEffect();
         //SceneManager.LoadScene(_currentIndex + 3);
         StartCoroutine(PlayTransition(GetCurrentMapIndex()));
 

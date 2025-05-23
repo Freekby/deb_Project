@@ -70,8 +70,9 @@ public class LevelManager : MonoBehaviour
         var mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector2 position = new Vector2(mousePos.origin.x, mousePos.origin.y);
         Collider2D hit = Physics2D.OverlapPoint(position);
-
+        Debug.Log(hit.gameObject);
         return hit.gameObject;
+        
     }
 
     private void RemoveActiveHiddenObject(string objectName)
@@ -94,7 +95,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
@@ -102,6 +103,7 @@ public class LevelManager : MonoBehaviour
 
             if (ClickedObject)
             {
+                Debug.Log(ClickedObject.name);
                 RemoveActiveHiddenObject(ClickedObject.name);
                 ClickedObject.GetComponent<SpriteRenderer>().enabled = false;
 
@@ -128,7 +130,7 @@ public class LevelManager : MonoBehaviour
     {
         int randomVal = UnityEngine.Random.Range(0, activeHiddenObjectsList.Count);
         Vector3 originalScale = activeHiddenObjectsList[randomVal].hiddenObject.transform.localScale;
-        activeHiddenObjectsList[randomVal].soundObject.GetComponent<AudioSource>().Play();
+        //activeHiddenObjectsList[randomVal].soundObject.GetComponent<AudioSource>().Play();
         Debug.Log(activeHiddenObjectsList[randomVal].soundObject.name);
 
 
